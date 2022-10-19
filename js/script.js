@@ -31,14 +31,16 @@ const stampFirstArray = document.querySelector(".first-array");
 stampFirstArray.innerHTML = arrayRndNumber; 
 console.log(arrayRndNumber);
 
+
 // Settare timeOut dopo 30 secondi dalla comparsa dei numeri generati per far sparire i numeri
 function hidden () {
     stampFirstArray.classList.add("hidden");
 }
-setTimeout(hidden, 30000);
+setTimeout(hidden, 5000);
 
 // Creare array di numeri risposta dell'utente
 const userNumber = [];
+
 
 // Funzione che chiede all'utente tramite prompt i numeri visualizzati precedentemente 
 // Aggiungere numeri risposta dell'utente all'array
@@ -48,9 +50,17 @@ function number () {
         userNumber.push(userNumbers);
     }
     console.log(userNumber);
+    // Comparo i due array se sono uguali
+    let isSame = arrayRndNumber[i] == userNumber[i] && arrayRndNumber.every(function(element, index) {
+        if(userNumber.indexOf(element)>-1){
+          return element = userNumber[userNumber.indexOf(element)];
+        }
+      });
+      console.log(isSame);
 }
-setTimeout(number, 30000);
+setTimeout(number, 5000);
  
+
 // SE numberRnd === userNumber 
 //    count++;
 //    pusho i numeri uguali nell' array soluzione;
